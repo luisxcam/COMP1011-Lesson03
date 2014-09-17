@@ -1,5 +1,4 @@
-
-
+import java.util.InputMismatchException;
 /**
  * This class DivideByZeroNoExceptionHandling divides two integers and stops abnormally when the denominator is zero .
  * 
@@ -17,21 +16,38 @@ public class DivideByZeroWithExceptionHandling
     
     public static void main(String[] args)
     {
+    	//variable definition
         int numerator, denominator, result;
+        boolean finished = true;
+        
+        //Start scanner
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("Please enter an integer numerator");
-        numerator = scanner.nextInt();
-        
-        System.out.println("Please enter an integer denominator");
-        denominator = scanner.nextInt();
-        
-        try{
-        result = quotient( numerator,  denominator);
-        System.out.printf("%nResult: %d / %d = %d%n", numerator, denominator, result);
-        }
-        catch(ArithmeticException e){
-        	System.out.println("Cannot make a division with ZERO as a denominator");
-        }
-    }
-}
+        do{
+        	//User input
+	        System.out.println("Please enter an integer numerator");
+	        numerator = scanner.nextInt();
+	        
+	        System.out.println("Please enter an integer denominator");
+	        denominator = scanner.nextInt();
+	        
+	        try{
+	        	//do division, display result
+		        result = quotient( numerator,  denominator);
+		        System.out.printf("%nResult: %d / %d = %d%n", numerator, denominator, result);
+		        finished = false;
+	        }//try
+	        
+	        catch(InputMismatchException e){
+	        	System.out.println("Invalid value provided. Non numeric value given.");
+	        	System.out.println("Try again");
+	        }//catch
+	        
+	        catch(ArithmeticException e){
+	        	System.out.println("Cannot divide by 0");
+	        	System.out.println("Try again.");
+	        }//catch
+	        
+        }while(finished);//do
+    }//main
+}//class
