@@ -9,22 +9,29 @@
  */
 public class UsingExceptionsIncomplete
 {
-   public static void main(String[] args)
-   {
-       method1();
-    }
-    
-    public static void method1()
-    {
-        method2();
-    }
-     public static void method2()
-    {
-        method3();
-    }
-     public static void method3()
-    {
-       throw new Exception("Exception thrown in method 3");
-    }
-    
+	public static void main(String[] args)
+	{
+		try{
+			method1();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void method1() throws Exception
+	{
+		method2();
+	}
+	public static void method2() throws Exception
+	{
+		method3();
+	}
+	public static void method3() throws Exception
+	{
+		System.out.println("Reached method3()");
+		throw new Exception("Exception thrown in method 3");
+	}
+
 }
