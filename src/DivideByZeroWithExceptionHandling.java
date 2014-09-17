@@ -24,27 +24,22 @@ public class DivideByZeroWithExceptionHandling
         Scanner scanner = new Scanner(System.in);
         
         do{
-        	try{
-        		//User input
-		        System.out.println("Please enter an integer numerator");
-		        numerator = scanner.nextInt();
-		        
-		        System.out.println("Please enter an integer denominator");
-		        denominator = scanner.nextInt();
+        	//User input
+	        System.out.println("Please enter an integer numerator");
+	        numerator = scanner.nextInt();
 	        
-	        	//do division
+	        System.out.println("Please enter an integer denominator");
+	        denominator = scanner.nextInt();
+	        
+	        try{
+	        	//do division, display result
 		        result = quotient( numerator,  denominator);
-		        
-		        //display
 		        System.out.printf("%nResult: %d / %d = %d%n", numerator, denominator, result);
-		        
-		        //kill the loop
 		        finished = false;
 	        }//try
 	        
 	        catch(InputMismatchException e){
 	        	System.out.println("Invalid value provided. Non numeric value given.");
-	        	scanner.nextLine();
 	        	System.out.println("Try again");
 	        }//catch
 	        
