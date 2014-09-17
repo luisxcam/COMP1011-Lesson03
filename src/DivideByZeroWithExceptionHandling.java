@@ -3,12 +3,12 @@
 /**
  * This class DivideByZeroNoExceptionHandling divides two integers and stops abnormally when the denominator is zero .
  * 
- * @author Anju Chawla
+ * @author Luis Acevedo
  * @version September 2014
  */
 import java.util.Scanner;
 
-public class DivideByZeroNoExceptionHandling
+public class DivideByZeroWithExceptionHandling
 {
     public static int quotient(int numerator, int denominator)
     {
@@ -26,8 +26,12 @@ public class DivideByZeroNoExceptionHandling
         System.out.println("Please enter an integer denominator");
         denominator = scanner.nextInt();
         
+        try{
         result = quotient( numerator,  denominator);
         System.out.printf("%nResult: %d / %d = %d%n", numerator, denominator, result);
-        
+        }
+        catch(ArithmeticException e){
+        	System.out.println("Cannot make a division with ZERO as a denominator");
+        }
     }
 }
